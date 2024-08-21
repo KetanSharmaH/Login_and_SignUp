@@ -1,17 +1,24 @@
-import { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Login from "./Login";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Signup from "./SignUp";
 
 function App() {
-  // eslint-disable-next-line no-unused-vars
-  const [count, setCount] = useState(0);
+  const Loginrouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <Login />,
+    },
+    {
+      path: "/SignUp",
+      element: <Signup />,
+    },
+  ]);
 
   return (
     <>
-      <section id="Login">
-        <Login />
-      </section>
+      <RouterProvider router={Loginrouter} />
     </>
   );
 }
